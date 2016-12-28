@@ -1,0 +1,1 @@
+wget http://export.hotosm.org/downloads/e7785430-a3cf-4389-b3ae-3d3bb92a7f27/carte_du_mali.pbf

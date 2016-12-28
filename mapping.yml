@@ -1,0 +1,563 @@
+tables:
+  bnd_admin_osm:
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: name:en
+      name: name_eng
+      type: string
+    - name: type
+      type: mapping_value
+    - key: admin_level
+      name: admin_level
+      type: integer
+    - name: iso3
+      type: string
+    - name: country
+      type: string
+    - name: last_update
+      type: string
+    mapping:
+      boundary:
+      - administrative
+    type: polygon
+  poi_amenities_osm:
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: name:en
+      name: name_eng
+      type: string
+    - name: type
+      type: mapping_value
+    - name: iso3
+      type: string
+    - name: country
+      type: string
+    - name: last_update
+      type: string
+    mapping:
+      amenity:
+      - university
+      - school
+      - library
+      - fuel
+      - hospital
+      - fire_station
+      - police
+      - townhall
+      - bar
+      - cafe
+      - fast_food
+      - ice_cream
+      - restaurant
+      - bus_station
+      - parking
+      - bank
+      - clinic
+      - theatre
+      - courthouse
+      - embassy
+      - marketplace
+      - post_office
+      - prison
+    type: point
+  poi_buildings_osm:
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: name:en
+      name: name_eng
+      type: string
+    - name: type
+      type: mapping_value
+    - name: iso3
+      type: string
+    - name: country
+      type: string
+    - name: last_update
+      type: string
+    mapping:
+      building:
+      - __any__
+    type: polygon
+  poi_landusage_osm:
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: name:en
+      name: name_eng
+      type: string
+    - name: type
+      type: mapping_value
+    - name: area
+      type: pseudoarea
+    - name: iso3
+      type: string
+    - name: country
+      type: string
+    - name: last_update
+      type: string
+    - args:
+        values:
+        - land
+        - island
+        - heath
+        - railway
+        - industrial
+        - commercial
+        - retail
+        - residential
+        - quarry
+        - zoo
+        - vineyard
+        - orchard
+        - scrub
+        - hospital
+        - place_of_worship
+        - theatre
+        - cinema
+        - nature_reserve
+        - parking
+        - fuel
+        - baracks
+        - library
+        - college
+        - school
+        - university
+        - golf_course
+        - allotments
+        - common
+        - pitch
+        - sports_centre
+        - garden
+        - recreation_ground
+        - village_green
+        - wetland
+        - grass
+        - meadow
+        - wood
+        - farmland
+        - farm
+        - farmyard
+        - cemetery
+        - forest
+        - park
+        - playground
+        - footway
+        - pedestrian
+      name: z_order
+      type: enumerate
+    mapping:
+      aeroway:
+      - runway
+      - taxiway
+      amenity:
+      - university
+      - school
+      - college
+      - library
+      - fuel
+      - parking
+      - cinema
+      - theatre
+      - place_of_worship
+      - hospital
+      barrier:
+      - hedge
+      highway:
+      - pedestrian
+      - footway
+      landuse:
+      - park
+      - forest
+      - residential
+      - retail
+      - commercial
+      - industrial
+      - railway
+      - cemetery
+      - grass
+      - farmyard
+      - farm
+      - farmland
+      - orchard
+      - vineyard
+      - wood
+      - meadow
+      - village_green
+      - recreation_ground
+      - allotments
+      - quarry
+      leisure:
+      - park
+      - garden
+      - playground
+      - golf_course
+      - sports_centre
+      - pitch
+      - stadium
+      - common
+      - nature_reserve
+      man_made:
+      - pier
+      military:
+      - barracks
+      natural:
+      - wood
+      - land
+      - scrub
+      - wetland
+      - heath
+      place:
+      - island
+      tourism:
+      - zoo
+    type: polygon
+  pop_places_osm:
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: name:en
+      name: name_eng
+      type: string
+    - key: int_name
+      name: name_int
+      type: string
+    - name: type
+      type: mapping_value
+    - args:
+        values:
+        - locality
+        - suburb
+        - hamlet
+        - village
+        - town
+        - city
+      name: z_order
+      type: enumerate
+    - key: population
+      name: population
+      type: integer
+    - name: last_update
+      type: string
+    - name: country
+      type: string
+    - name: iso3
+      type: string
+    - key: source
+      name: source
+      type: string
+    mapping:
+      place:
+      - city
+      - town
+      - village
+      - hamlet
+      - suburb
+      - locality
+    type: point
+  trs_roads_osm:
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - name: sourceid
+      type: string
+    - key: notes
+      name: notes
+      type: string
+    - key: ref
+      name: ref
+      type: string
+    - key: name
+      name: rtenme
+      type: string
+    - name: ntlclass
+      type: mapping_value
+    - name: fclass
+      type: integer
+    - key: lanes
+      name: numlanes
+      type: integer
+    - key: surface
+      name: srftpe
+      type: string
+    - key: smoothness
+      name: srfcond
+      type: string
+    - key: winter_road
+      name: isseasonal
+      type: boolint
+    - key: practicability
+      name: curntprac
+      type: string
+    - key: maxspeed
+      name: gnralspeed
+      type: integer
+    - key: width
+      name: rdwidthm
+      type: integer
+    - key: status
+      name: status
+      type: string
+    - key: bridge
+      name: bridge
+      type: boolint
+    - name: iso3
+      type: string
+    - name: country
+      type: string
+    - name: last_update
+      type: string
+    filters:
+      exclude_tags:
+      - - area
+        - 'yes'
+    mapping:
+      highway:
+      - motorway
+      - motorway_link
+      - trunk
+      - trunk_link
+      - primary
+      - primary_link
+      - secondary
+      - secondary_link
+      - tertiary
+      - tertiary_link
+      - road
+      - track
+      - service
+      - living_street
+      - unclassified
+      - residential
+    type: linestring
+  trs_railways_osm:
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: name:en
+      name: name_eng
+      type: string
+    - key: railway
+      name: railwaytpe
+      type: mapping_value
+    - key: status
+      name: status
+      type: string
+    - name: iso3
+      type: string
+    - name: country
+      type: string
+    - name: last_update
+      type: string
+    mapping:
+      railway:
+      - rail
+      - narrow_gauge
+      - light_rail
+    type: linestring
+  trs_airports_osm:
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: name:en
+      name: name_eng
+      type: string
+    - key: city_served
+      name: city
+      type: string
+    - name: type
+      type: mapping_value
+    - key: aerodrome:type
+      name: authority
+      type: string
+    - key: iata
+      name: iata
+      type: string
+    - key: icao
+      name: icao
+      type: string
+    - key: ele
+      name: elevm
+      type: integer
+    - key: surface
+      name: surface
+      type: string
+    - name: iso3
+      type: string
+    - name: country
+      type: string
+    - name: last_update
+      type: string
+    - key: source
+      name: source
+      type: string
+    - key: status
+      name: status
+      type: string
+    mapping:
+      aeroway:
+      - aerodrome
+      - helipad
+      - heliport
+    type: point
+  trs_ports_osm:
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: name:en
+      name: name_eng
+      type: string
+    - name: porttpe
+      type: mapping_value
+    - name: iso3
+      type: string
+    - name: country
+      type: string
+    - name: last_update
+      type: string
+    - key: source
+      name: source
+      type: string
+    - key: status
+      name: status
+      type: string
+    mapping:
+      harbour:
+      - __any__
+      seamark:type:
+      - harbour
+      seamark:harbour:category:
+      - roro
+      - ferry
+      - fishing
+      - tanker
+      - container
+      - bulk
+      - timber
+      - cargo
+    type: point
+  trs_stations_osm:
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: name:en
+      name: name_eng
+      type: string
+    - key: mapping_value
+      name: type
+      type: string
+    - name: iso3
+      type: string
+    - name: country
+      type: string
+    - name: last_update
+      type: string
+    - key: source
+      name: source
+      type: string
+    mapping:
+      railway:
+      - station
+    type: point
+  hyd_waterareas_osm:
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: name:en
+      name: name_eng
+      type: string
+    - name: type
+      type: mapping_value
+    - name: area
+      type: pseudoarea
+    mapping:
+      amenity:
+      - swimming_pool
+      landuse:
+      - basin
+      - reservoir
+      leisure:
+      - swimming_pool
+      natural:
+      - water
+      waterway:
+      - riverbank
+    type: polygon
+  hyd_rivers_osm:
+    fields:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - key: name
+      name: name
+      type: string
+    - key: name:en
+      name: name_eng
+      type: string
+    - name: type
+      type: mapping_value
+    mapping:
+      barrier:
+      - ditch
+      waterway:
+      - stream
+      - river
+      - canal
+      - drain
+      - ditch
+    type: linestring

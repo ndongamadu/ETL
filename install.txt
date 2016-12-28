@@ -1,0 +1,11 @@
+== installation de gdal ==
+
+wget http://download.osgeo.org/gdal/gdal192.zip
+
+executer le script d'installation ou la suite de commandes suivantes : 
+
+1 - unzip gdal192.zip
+2 - cd gdal-192
+3 - ./configure
+4 - make 
+5 - sudo make install 

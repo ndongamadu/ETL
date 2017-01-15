@@ -1,3 +1,4 @@
+== sudo apt-get install gdal == 
 == installation de gdal ==
 
 wget http://download.osgeo.org/gdal/gdal192.zip
